@@ -132,7 +132,7 @@ int load_and_invoke_dex(JNIEnv *env, const char *argument) {
                                              bufferDex,
                                              oSystemClassLoader);
     if (runtime_instance && "system_server_forked"sv != argument) {
-        LOGE("setting our classloader as trusted");
+        LOGD("setting our classloader as trusted");
 
         auto bdc_class = env->FindClass("dalvik/system/BaseDexClassLoader");
         auto path_list_field = env->GetFieldID(bdc_class, "pathList", "Ldalvik/system/DexPathList;");
@@ -155,7 +155,7 @@ int load_and_invoke_dex(JNIEnv *env, const char *argument) {
             set_trusted(env, dex_file_class, cookie);
         }
         set_debuggable(runtime_instance, false);
-        LOGE("our classloader is now trusted");
+        LOGD("our classloader is now trusted");
     }
 
     if (catch_exception(env)) return 1;
