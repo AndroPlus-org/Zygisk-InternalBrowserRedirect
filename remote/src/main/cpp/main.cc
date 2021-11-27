@@ -50,7 +50,7 @@ static void on_app_fork(JNIEnv *env, jstring jAppDataDir) {
 
     enable_inject = access(path_buffer, F_OK) == 0;
     LOGD("should hook %s: %d", package_name, enable_inject);
-    if (allow_unload) *allow_unload = !enable_inject;
+    if (allow_unload) *allow_unload = true;
 }
 
 static void nativeForkAndSpecializePre(
@@ -83,7 +83,7 @@ static void onModuleLoaded() {
     strcat(tmp, magisk_path);
     strcat(tmp, DEX_PATH);
     preloadDex(tmp);
-//    __system_property_set(SERVICE_STATUE_KEY, "riru_loaded");
+    findSymbol();
 }
 
 static RiruVersionedModuleInfo module = {

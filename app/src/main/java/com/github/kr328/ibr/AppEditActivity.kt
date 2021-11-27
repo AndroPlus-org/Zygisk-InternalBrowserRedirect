@@ -132,6 +132,7 @@ class AppEditActivity : AppCompatActivity() {
                         R.string.edit_app_application_exception_push_data_to_service_failure,
                         Toast.LENGTH_LONG).show()
             }
+            else -> {}
         }
     }
 }

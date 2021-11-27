@@ -124,6 +124,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this,
                         R.string.app_list_application_refresh_failure,
                         Toast.LENGTH_LONG).show()
+            else -> {}
         }
     }
 

@@ -39,12 +39,3 @@ mkdir -p "$DATA_PATH/userdata"
 ui_print "- Set permissions"
 set_perm_recursive $MODPATH 0    0    0755 0644
 set_perm_recursive $DATA_PATH  1000 1000 0700 0600 u:object_r:system_data_file:s0
-
-# extract Riru files
-ui_print "- Extracting extra files"
-[ -d "$RIRU_MODULE_PATH" ] || mkdir -p "$RIRU_MODULE_PATH" || abort "! Can't create $RIRU_MODULE_PATH"
-
-rm -f "$RIRU_MODULE_PATH/module.prop.new"
-cp $MODPATH/module.prop "$RIRU_MODULE_PATH/module.prop.new"
-echo "ibr" > $RIRU_PATH/modules/ibr.prop
-set_perm "$RIRU_MODULE_PATH/module.prop.new" 0 0 0600 $RIRU_SECONTEXT
