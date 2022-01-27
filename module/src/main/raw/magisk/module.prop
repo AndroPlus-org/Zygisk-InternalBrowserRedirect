@@ -1,7 +1,6 @@
-id=riru_ibr
-name=Riru - InternalBrowserRedirect
-version=v11.7
-versionCode=11007
-author=Kr328
+id=zygisk_ibr
+name=Zygisk - InternalBrowserRedirect
+version=v12.0
+versionCode=12000
+author=Kr328, yujincheng08
 description=Redirect internal browser activity to ACTION_VIEW.
-minApi=10

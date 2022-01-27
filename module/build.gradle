@@ -9,7 +9,7 @@ android {
 }
 ext {
     is_windows = OperatingSystem.current().isWindows()
-    zipFileName = "riru-internal-browser-redirect.zip"
+    zipFileName = "zygisk-internal-browser-redirect.zip"
 }
 
 task magisk(type: Zip) {
@@ -20,34 +20,30 @@ task magisk(type: Zip) {
     }
     from(project(":remote").fileTree("build/outputs/remote-library/armeabi-v7a")) {
         include "*.so"
-        into "riru/lib"
+        rename(".*\\.so", "armeabi-v7a.so")
+        into "zygisk"
     }
     from(project(":remote").fileTree("build/outputs/remote-library/arm64-v8a")) {
         include "*.so"
-        into "riru/lib64"
+        rename(".*\\.so", "arm64-v8a.so")
+        into "zygisk"
     }
     from(project(":remote").fileTree("build/outputs/remote-library/x86")) {
         include "*.so"
-        into "riru_x86/lib"
+        rename(".*\\.so", "x86.so")
+        into "zygisk"
     }
     from(project(":remote").fileTree("build/outputs/remote-library/x86_64")) {
         include "*.so"
-        into "riru_x86/lib64"
+        rename(".*\\.so", "x86_64.so")
+        into "zygisk"
     }
-    from(project(":app").file("build/outputs/apk/release/app-release-unsigned.apk")) {
+    from(project(":app").file("build/intermediates/apk/release/app-release.apk")) {
         rename {
             "app.apk"
         }
     }
-    from(file("src/main/raw/magisk")) {
-        filter { line ->
-            line.replaceAll('%%%RIRU_MODULE_ID%%%', moduleId)
-                    .replaceAll('%%%RIRU_MODULE_API_VERSION%%%', moduleMaxRiruApiVersion.toString())
-                    .replaceAll('%%%RIRU_MODULE_MIN_API_VERSION%%%', moduleMinRiruApiVersion.toString())
-                    .replaceAll('%%%RIRU_MODULE_MIN_RIRU_VERSION_NAME%%%', moduleMinRiruVersionName)
-        }
-        filter(FixCrLfFilter.class, eol: FixCrLfFilter.CrLf.newInstance("lf"))
-    }
+    from(file("src/main/raw/magisk"))
 
     destinationDirectory = file("$buildDir/outputs")
     archiveFileName = "$zipFileName"

@@ -1,12 +1,12 @@
 buildscript {
-    ext.kotlin_version = '1.6.0'
+    ext.kotlin_version = '1.6.10'
 
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.3'
+        classpath 'com.android.tools.build:gradle:7.1.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
     }
@@ -21,9 +21,6 @@ allprojects {
         moduleId = "ibr"
         versionCode = 1
         versionName = "1.0"
-        moduleMinRiruApiVersion = 25
-        moduleMinRiruVersionName = "25.0.0"
-        moduleMaxRiruApiVersion = 25
     }
 }
 

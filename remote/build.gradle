@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion "31.0.0"
+    compileSdkVersion 32
+    buildToolsVersion "32.0.0"
     ndkVersion "23.1.7779620"
 
     defaultConfig {
         minSdkVersion 26
-        targetSdkVersion 31
+        targetSdkVersion 32
         versionCode versionCode
         versionName versionName
 
@@ -16,9 +16,6 @@ android {
                 abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
                 var configFlags = "-Oz -DNDEBUG"
                 arguments "-DMODULE_NAME:STRING=$moduleId",
-                        "-DRIRU_MODULE_API_VERSION=$moduleMinRiruApiVersion",
-                        "-DRIRU_MODULE_VERSION=$versionCode",
-                        "-DRIRU_MODULE_VERSION_NAME:STRING=\"$versionName\"",
                         "-DANDROID_STL=none",
                         "-DCMAKE_CXX_FLAGS_RELEASE=$configFlags",
                         "-DCMAKE_CXX_FLAGS_RELWITHDEBINFO=$configFlags",
@@ -33,7 +30,8 @@ android {
                         "-fomit-frame-pointer",
                         "-Wno-builtin-macro-redefined",
                         "-Wl,--exclude-libs,ALL",
-                        "-D__FILE__=__FILE_NAME__"
+                        "-D__FILE__=__FILE_NAME__",
+                        "-Wl,--strip-all"
             }
         }
     }
@@ -60,14 +58,13 @@ android {
 }
 
 dependencies {
-    implementation 'dev.rikka.ndk:riru:26.0.0'
     implementation 'dev.rikka.ndk.thirdparty:cxx:1.2.0'
     implementation project(":shared")
     compileOnly project(":hideapi")
 }
 
 task extractRemoteLibrary(type: Copy) {
-    from zipTree("$buildDir/outputs/apk/release/remote-release-unsigned.apk")
+    from zipTree("$buildDir/intermediates/apk/release/remote-release-unsigned.apk")
     include "lib/**"
     include "*.dex"
     into "$buildDir/outputs/remote-library/"

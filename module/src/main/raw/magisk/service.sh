@@ -25,11 +25,13 @@ if [[ ! -f "$MODDIR/apk_installed" ]];then
   cp "$MODDIR/app.apk" "$TEMP_APK_PATH"
   chown shell:shell "$TEMP_APK_PATH"
   chmod 0644 "$TEMP_APK_PATH"
-
   /system/bin/pm install -r "$TEMP_APK_PATH"
+  if [ "$?" -ne 0 ]; then
+    /system/bin/pm uninstall com.github.kr328.ibr
+    /system/bin/pm install "$TEMP_APK_PATH"
+  fi
   /system/bin/am start -n "com.github.kr328.ibr/com.github.kr328.ibr.FirstInstallActivity"
 
   touch "$MODDIR/apk_installed"
   rm "$TEMP_APK_PATH"
 fi
-

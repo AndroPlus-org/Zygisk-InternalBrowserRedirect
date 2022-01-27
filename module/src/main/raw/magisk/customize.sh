@@ -1,4 +1,10 @@
-DATA_PATH="/data/misc/internal_browser_redirect"
+DATA_PATH="/data/misc/internal_browser_redirect/userdata"
+ui_print "- Magisk version: $MAGISK_VER_CODE"
+if [ "$MAGISK_VER_CODE" -lt 24000 ]; then
+  ui_print "*********************************************************"
+  ui_print "! Please install Magisk v24+"
+  abort    "*********************************************************"
+fi
 
 ui_print "- Checking arch"
 
@@ -8,32 +14,15 @@ else
   ui_print "- Device platform: $ARCH"
 fi
 
-. $MODPATH/riru.sh
-
-check_riru_version
-
 # Check System API Level
-if [ "$API" -lt "23" ];then
+if [ "$API" -lt "26" ];then
   ui_print "Unsupported api version ${API}"
-  abort "This module only for Android 6+"
-fi
-
-if [ "$ARCH" = "x86" ] || [ "$ARCH" = "x64" ]; then
-  rm -rf ${MODPATH}/riru
-  mv "${MODPATH}/riru_x86" "${MODPATH}/riru"
-else
-  rm -rf ${MODPATH}/riru_x86
-fi
-
-# Remove 64-bit library
-if [[ "$IS64BIT" = false ]]; then
-  ui_print "- Removing 64-bit libraries"
-  rm -rf "$MODPATH/riru/lib64"
+  abort "This module only for Android 8+"
 fi
 
 # Create userdata directory
 ui_print "- Create userdata directory"
-mkdir -p "$DATA_PATH/userdata"
+mkdir -p "$DATA_PATH"
 
 # Set permission
 ui_print "- Set permissions"

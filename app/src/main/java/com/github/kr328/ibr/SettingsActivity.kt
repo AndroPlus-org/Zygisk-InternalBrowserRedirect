@@ -50,13 +50,13 @@ class SettingsActivity : AppCompatActivity() {
         override fun onStart() {
             super.onStart()
 
-            preferenceManager.sharedPreferences.registerOnSharedPreferenceChangeListener(this)
+            preferenceManager.sharedPreferences?.registerOnSharedPreferenceChangeListener(this)
         }
 
         override fun onStop() {
             super.onStop()
 
-            preferenceManager.sharedPreferences.unregisterOnSharedPreferenceChangeListener(this)
+            preferenceManager.sharedPreferences?.unregisterOnSharedPreferenceChangeListener(this)
         }
 
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
