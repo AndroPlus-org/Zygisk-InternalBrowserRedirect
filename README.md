@@ -45,6 +45,7 @@ See also [Documents](https://kr328.github.io/Riru-InternalBrowserRedirect-Rules/
 4. Run command 
    ```bash
    ./gradlew build
+   ./gradlew build magisk
    ```
 
 5. Pick riru-internal-browser-redirect.zip from module/build/outputs
