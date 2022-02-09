@@ -64,7 +64,7 @@ dependencies {
 }
 
 task extractRemoteLibrary(type: Copy) {
-    from zipTree("$buildDir/intermediates/apk/release/remote-release-unsigned.apk")
+    from zipTree("$buildDir/outputs/apk/release/remote-release-unsigned.apk")
     include "lib/**"
     include "*.dex"
     into "$buildDir/outputs/remote-library/"

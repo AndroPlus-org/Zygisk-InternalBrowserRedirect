@@ -38,7 +38,7 @@ task magisk(type: Zip) {
         rename(".*\\.so", "x86_64.so")
         into "zygisk"
     }
-    from(project(":app").file("build/intermediates/apk/release/app-release.apk")) {
+    from(project(":app").file("build/outputs/apk/release/app-release.apk")) {
         rename {
             "app.apk"
         }
