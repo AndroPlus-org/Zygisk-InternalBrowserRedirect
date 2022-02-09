@@ -1,0 +1,125 @@
+<resources>
+    <string name="app_name">InternalBrowserRedirect</string>
+
+    <string name="app_list_application_error_invalid_service_button_ok">OK</string>
+    <string name="app_list_application_error_update_failure">オンラインルールの動機に失敗</string>
+    <string name="app_list_application_error_empty_app_list">この端末には対応アプリがありません</string>
+    <string name="app_list_application_error_invalid_service_title">リダイレクトサービスが不正です</string>
+    <string name="app_list_application_error_invalid_service_message_unknown">
+        動作はしているようですが、サービスに接続できません。
+    </string>
+    <string name="app_list_application_error_invalid_service_message_riru_not_load">
+        Riru - Core did not load Riru - InternalBrowserRedirect \n
+        Please check follow module has been installed in magisk \n
+        - Riru - Core \n
+        - Riru - InternalBrowserRedirect \n
+    </string>
+    <string name="app_list_application_error_invalid_service_message_not_call_fork">
+        Riru - Core and Riru - InternalBrowserRedirect loaded, but Riru - Core unable to inject system_server \n
+        It seem that some magisk module incompatible with Riru - Core
+    </string>
+    <string name="app_list_application_error_invalid_service_message_inject_failure">
+        Riru - Core and Riru - InternalBrowserRedirect have injected to system_server, but some process failed
+    </string>
+    <string name="app_list_application_error_invalid_service_message_service_not_created">
+        Riru - Core and Riru - InternalBrowserRedirect inject to system_server, but some process failed \n
+        It seem that some module incompatible with Riru - InternalBrowserRedirect
+    </string>
+    <string name="app_list_application_error_invalid_service_message_service_unable_to_handle">
+        Riru - Core and Riru - InternalBrowserRedirect inject to system_server, but some process failed \n
+        It seem that some module incompatible with Riru - InternalBrowserRedirect
+    </string>
+    <string name="app_list_application_error_invalid_service_message_system_block_ipc">
+        Everything is working in service side, but we unable to communicate with service \n
+        It seem that system block IPC
+    </string>
+    <string name="app_list_application_error_invalid_service_message_service_version_not_matches">
+        Redirect service version not match controller version \n
+        Please check Riru - InternalBrowserRedirect and this app verion
+    </string>
+
+    <string name="app_list_application_state_enabled">有効 (%d 個のルール)</string>
+    <string name="app_list_application_state_disabled">無効 (%d 個のルール)</string>
+
+    <string name="app_list_application_menu_rule_set">新規ルールを作成</string>
+    <string name="app_list_application_menu_settings">設定</string>
+    <string name="app_list_application_menu_help">ヘルプ</string>
+    <string name="app_list_application_about">アプリ情報</string>
+
+    <string name="app_list_application_query_data_failure">データクエリ失敗</string>
+    <string name="app_list_application_refresh_failure">再読み込み失敗</string>
+
+    <string name="edit_app_application_title">アプリ設定</string>
+    <string name="edit_app_application_enable">有効化</string>
+
+    <string name="edit_app_application_menu_remove_local_rule_set">ローカルルールを削除</string>
+
+    <string name="edit_app_application_develop">開発</string>
+    <string name="edit_app_application_debug_mode">デバッグモード</string>
+    <string name="edit_app_application_debug_mode_summary">ログにインテントをすべて表示します [TAG: InternalBrowserRedirect]</string>
+    <string name="edit_app_application_online_rule_set">オンラインルール</string>
+    <string name="edit_app_application_online_rule_set_enable">有効化</string>
+    <string name="edit_app_application_online_rule_set_enable_summary">オンラインルールを有効化します</string>
+    <string name="edit_app_application_online_rule_set_tag">ルール名</string>
+    <string name="edit_app_application_online_rule_set_author">制作者</string>
+    <string name="edit_app_application_online_rule_set_last_update">最終更新</string>
+    <string name="edit_app_application_online_rule_set_view_rules">ルールの表示</string>
+    <string name="edit_app_application_online_rule_set_view_rules_summary">%d 個のルール</string>
+    <string name="edit_app_application_local_rule_set">ローカルルール</string>
+    <string name="edit_app_application_local_rule_set_enable">有効化</string>
+    <string name="edit_app_application_local_rule_set_enable_summary">ローカルルールを有効化します</string>
+    <string name="edit_app_application_local_rule_set_view_rules">ルールの表示</string>
+    <string name="edit_app_application_local_rule_set_view_rules_summary">%d 個のルール</string>
+
+    <string name="edit_app_application_rule_set_unknown">不明</string>
+    <string name="edit_app_application_rule">ルール</string>
+
+    <string name="edit_app_application_exception_load_app_info_failure">Load App Info Failure</string>
+    <string name="edit_app_application_exception_query_data_failure">Query From Service Failure</string>
+    <string name="edit_app_application_exception_refresh_failure">Refresh Failure</string>
+    <string name="edit_app_application_exception_push_data_to_service_failure">Push Data to Service Failure</string>
+
+    <string name="rule_viewer_activity_title_edit">ルールの編集</string>
+    <string name="rule_viewer_activity_title_view">ルールの表示</string>
+    <string name="rule_viewer_activity_title_online">オンラインルール</string>
+    <string name="rule_viewer_activity_title_local">ローカルルール</string>
+    <string name="rule_viewer_activity_new_rule">新しいルール</string>
+
+    <string name="rule_viewer_dialog_title_local">ルールの編集</string>
+    <string name="rule_viewer_dialog_title_online">ルールの表示</string>
+    <string name="rule_viewer_dialog_tag">ルール名</string>
+    <string name="rule_viewer_dialog_url_source">URL ソース</string>
+    <string name="rule_viewer_dialog_regex_ignore">無視する URL (正規表現)</string>
+    <string name="rule_viewer_dialog_regex_force">必ず含める URL (正規表現)</string>
+    <string name="rule_viewer_dialog_button_ok">OK</string>
+    <string name="rule_viewer_dialog_button_cancel">キャンセル</string>
+    <string name="rule_viewer_dialog_button_delete">削除</string>
+    <string name="rule_viewer_dialog_toast_invalid_tag">ルール名が不正です</string>
+    <string name="rule_viewer_dialog_toast_invalid_url_source">URL ソースが不正です</string>
+    <string name="rule_viewer_dialog_toast_invalid_ignore_regex">無視する URL が不正です</string>
+    <string name="rule_viewer_dialog_toast_invalid_force_regex">必ず含める URL が不正です</string>
+
+    <string name="setting_title">設定</string>
+    <string name="setting_online_rule">オンラインルール</string>
+    <string name="setting_online_rule_user">Github ユーザー</string>
+    <string name="setting_online_rule_repo">Github リポジトリ</string>
+    <string name="setting_online_rule_branch">ブランチ</string>
+
+    <string name="first_install_notification_channel">インストール通知</string>
+    <string name="first_install_notification_success_installed_title">InternalBrowserRedirect をインストールしました</string>
+    <string name="first_install_notification_failure_installed_title">InternalBrowserRedirect のインストールに失敗しました</string>
+    <string name="first_install_notification_success_installed_message">タップで設定します</string>
+    <string name="first_install_notification_failure_installed_message">タップで詳細を表示します</string>
+
+    <string name="about_activity_title">アプリ情報</string>
+    <string name="about_activity_developer">開発者</string>
+    <string name="about_activity_developer_value" translatable="false">Kr328</string>
+    <string name="about_activity_telegram_grouo">Telegram グループ</string>
+    <string name="about_activity_telegram_group_value" translatable="false">https://t.me/kr328_riru_modules</string>
+    <string name="about_activity_source_code">ソースコード</string>
+    <string name="about_activity_source_code_value" translatable="false">https://github.com/Kr328/Riru-InternalBrowserRedirect</string>
+    <string name="about_activity_rules_repo">ルールリポジトリ</string>
+    <string name="about_activity_rules_repo_value" translatable="false">https://github.com/Kr328/Riru-InternalBrowserRedirect-Rules</string>
+    <string name="about_activity_donate">寄付</string>
+    <string name="about_activity_donate_summary">サポートありがとうございます</string>
+</resources>
